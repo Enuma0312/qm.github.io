@@ -8,10 +8,9 @@ GitHub：https://github.com/imsyy/home
 // 背景图片 Cookies
 function setBgImg(bg_img) {
   if (bg_img) {
-    Cookies.set("bg_img", JSON.stringify(bg_img), {
+    Cookies.set("bg_img", bg_img, {
       expires: 36500,
     });
-    console.log("背景图片设置已保存：", bg_img);
     return true;
   }
   return false;
@@ -20,7 +19,6 @@ function setBgImg(bg_img) {
 // 获取背景图片 Cookies
 function getBgImg() {
   let bg_img_local = Cookies.get("bg_img");
-  console.log("从Cookies中读取的背景图片设置：", bg_img_local);
   if (bg_img_local && bg_img_local !== "{}") {
     return JSON.parse(bg_img_local);
   } else {
@@ -39,24 +37,23 @@ let bg_img_preinstall = {
 // 更改背景图片
 function setBgImgInit() {
   let bg_img = getBgImg();
-  console.log("初始化背景图片设置：", bg_img);
-  $("input[name='wallpaper-type'][value=" + bg_img["type"] + "]").prop("checked", true);
+  $("input[name='wallpaper-type'][value=" + bg_img["type"] + "]").click();
 
   switch (bg_img["type"]) {
     case "1":
       $("#bg").attr(
         "src",
         `./img/background${1 + ~~(Math.random() * 10)}.webp`
-      ); // 随机默认壁纸
+      ); //随机默认壁纸
       break;
     case "2":
-      $("#bg").attr("src", bg_img_preinstall[2]); // 必应每日
+      $("#bg").attr("src", bg_img_preinstall[2]); //必应每日
       break;
     case "3":
-      $("#bg").attr("src", bg_img_preinstall[3]); // 随机风景
+      $("#bg").attr("src", bg_img_preinstall[3]); //随机风景
       break;
     case "4":
-      $("#bg").attr("src", bg_img_preinstall[4]); // 随机动漫
+      $("#bg").attr("src", bg_img_preinstall[4]); //随机动漫
       break;
   }
 }
