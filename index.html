@@ -80,18 +80,20 @@
     <section id="section" class="section">
         <!-- 背景图片 -->
         <style type="text/css">
-            body{
-              background: url("img/background1.webp") no-repeat center center fixed;
-                          /*兼容浏览器版本*/
-                          -webkit-background-size: cover;
-                          -o-background-size: cover;                
-                          background-size: cover;
-            } /*背景图*/
-       
-            .test {
-              margin-top: 100px;
+            body {
+                background: url("img/background1.webp") no-repeat center center fixed;
+                /*兼容浏览器版本*/
+                -webkit-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
             }
-          </style>
+
+            /*背景图*/
+
+            .test {
+                margin-top: 100px;
+            }
+        </style>
         <!-- 鼠标指针 -->
         <div id="g-pointer-1"></div>
         <div id="g-pointer-2"></div>
@@ -105,7 +107,7 @@
                 <span class="fas fa-search"></span>
             </div>
             <div class="search-data">
-                <input type="text" id="inp" required/>
+                <input type="text" id="inp" required />
                 <div class="line"></div>
                 <label>Type to search...</label>
                 <span class="fas fa-search" id="btn"></span>
@@ -114,36 +116,36 @@
             <script>
                 var oInp = document.getElementById('inp');
                 var oBtn = document.getElementById('btn');
-            
+
                 oBtn.onclick = function () {
                     Search();
                 }
-            
+
                 document.onkeydown = function () {
                     if (event.keyCode == 13) {
                         Search();
                     }
                 }
-            
+
                 function Search() {
                     var url = 'https://cn.bing.com/search?q=' + oInp.value;
-                    window.open(url,'_self');
+                    window.open(url, '_self');
                 }
             </script>
 
             <script>
-                $(".search-btn").click(function(){
-                    $(this).css("display","none");
+                $(".search-btn").click(function () {
+                    $(this).css("display", "none");
                     $(".search-data").fadeIn(500);
                     $(".close-btn").fadeIn(500);
                     $(".search-data .line").addClass("active");
-                    setTimeout(function(){
+                    setTimeout(function () {
                         $("input").focus();
                         $(".search-data label").fadeIn(500);
                         $(".search-data span").fadeIn(500);
                     }, 800);
                 });
-                $(".close-btn").click(function(){
+                $(".close-btn").click(function () {
                     $(".search-btn").fadeIn(800);
                     $(".search-data").fadeOut(500);
                     $(".close-btn").fadeOut(500);
@@ -177,7 +179,7 @@
                             </div>
                             <!--社交链接-->
                             <div class="social" id="social">
-                                
+
                                 <a href="https://wpa.qq.com/msgrd?v=3&uin=490969734&site=qq&menu=yes" class="link"
                                     id="qq" target="_blank">
                                     <i class="fa-brands fa-qq"></i>
@@ -439,7 +441,7 @@
                                 <span class="img-title-big" id="logo-title-other">青墨</span>
                                 <span class="img-text" id="logo-title-other-small">.io</span><br />
                                 <span class="img-text">&nbsp;v&nbsp;1.1</span>
-                                
+
                             </div>
                             <!--更多内容-->
                             <div class="accordion" id="accordion">
@@ -464,17 +466,17 @@
                                                     <div class="form-radio">
                                                         <input type="radio" class="set-wallpaper" style="display: none;"
                                                             id="radio2" value="2" name="wallpaper-type">
-                                                        <label for="radio2" id="wallpaper_text1">每日一图</label>
+                                                        <label for="radio2" >每日一图</label>
                                                     </div>
                                                     <div class="form-radio">
                                                         <input type="radio" class="set-wallpaper" style="display: none;"
                                                             id="radio3" value="3" name="wallpaper-type">
-                                                        <label for="radio3" id="wallpaper_text2">随机风景</label>
+                                                        <label for="radio3" >随机风景</label>
                                                     </div>
                                                     <div class="form-radio">
                                                         <input type="radio" class="set-wallpaper" style="display: none;"
                                                             id="radio4" value="4" name="wallpaper-type">
-                                                        <label for="radio4" id="wallpaper_text3">随机动漫</label>
+                                                        <label for="radio4" >随机动漫</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -494,7 +496,7 @@
                                         aria-labelledby="headingTwo" data-bs-parent="#accordion">
                                         <div class="accordion-body">
                                             <div class="upnote">
-						<span class="uptext">
+                                                <span class="uptext">
                                                     <i class="fa-solid fa-circle-plus"></i>&nbsp;加快网页相应速度 By.阿坤
                                                 </span>
                                                 <span class="uptext">
@@ -546,10 +548,10 @@
             <div class="power">Copyright&nbsp;©&nbsp;<span id="power-year">2022</span>
                 <script>
                     document.write(' - ' + (new Date()).getFullYear())
-                </script>&nbsp;<aid="power-text">青墨</a>&nbsp;&amp;&nbsp;
+                </script>&nbsp;<a>青墨</a>&nbsp;&amp;&nbsp;
                 <!-- 以下信息请不要修改哦 -->
-                Made&nbsp;⚙Modified from&nbsp;<atarget="_blank">imsyy</a>
-				🔒<a">暂未备案</a>
+                Made&nbsp;⚙Modified from&nbsp;<a>imsyy</a>
+                🔒<a>暂未备案</a>
             </div>
             <!-- 歌词显示 -->
             <div id="lrc"></div>
@@ -574,6 +576,33 @@
     <script type="text/javascript" src="./js/js.cookie.js"></script>
     <script type="text/javascript"
         src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/bootstrap/5.1.0/js/bootstrap.min.js">
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const wallpaperURLs = {
+        "1": "img/background1.webp", // Default background
+        "2": "https://tuapi.eees.cc/api.php?category=biying&type=302",
+        "3": "https://tuapi.eees.cc/api.php?category=fengjing&type=302",
+        "4": "https://tuapi.eees.cc/api.php?category=dongman&type=302"
+    };
+
+    let lastSelectedValue = null;
+
+    const radios = document.querySelectorAll(".set-wallpaper");
+
+    radios.forEach(radio => {
+        radio.addEventListener("click", function () {
+            const currentValue = radio.value;
+            const bgUrl = wallpaperURLs[currentValue] || wallpaperURLs["1"];
+
+            if (currentValue !== lastSelectedValue || currentValue === lastSelectedValue) {
+                document.body.style.backgroundImage = `url(${bgUrl})`;
+                lastSelectedValue = currentValue;
+            }
+        });
+    });
+});
+
     </script>
 </body>
 
