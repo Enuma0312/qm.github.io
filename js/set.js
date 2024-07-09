@@ -40,7 +40,7 @@ let bg_img_preinstall = {
 function setBgImgInit() {
   let bg_img = getBgImg();
   console.log("初始化背景图片设置：", bg_img);
-  $("input[name='wallpaper-type'][value=" + bg_img["type"] + "]").click();
+  $("input[name='wallpaper-type'][value=" + bg_img["type"] + "]").prop("checked", true);
 
   switch (bg_img["type"]) {
     case "1":
